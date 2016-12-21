@@ -30,16 +30,23 @@ char *convert_to_binary(int decimal){
 	//oix: omvandling index:
 	int t, oix;
 	oix = 0;
-	/* Den binära siffran är resten av delning med 2
-	på det decimala talet. */
-	for(t = decimal; t != 0; t=t/2){
-		if(t%2 == 1){
-			omvand[oix] = '1';
-		}
-		else{
-			omvand[oix] = '0';
-		}
+	//Om inkommande tal att omvandla är 0, returneras 0
+	if(!decimal){
+		omvand[oix] = '0';
 		oix++;
+	}
+	else{
+		/* Den binära siffran är resten av delning med 2
+		på det decimala talet. */
+		for(t = decimal; t != 0; t=t/2){
+			if(t%2 == 1){
+				omvand[oix] = '1';
+			}
+			else{
+				omvand[oix] = '0';
+			}
+			oix++;
+		}
 	}
 	omvand[oix] = '\0';
 	//Vänder på tecknen i char-arrayen
@@ -77,9 +84,9 @@ char *convert_to_binary_frac(double decfloat){
 	return binarfloat;
 }
 
-/* Använder funktionerna convert_f_to_binary & convert_i_to_binary
+/* Använder funktionerna convert_f_to_binary & convert_to_binary
 för att konvertera ett flyttal i decimalform till ett binärt flyttal */
-char *convert_to_binary_intfrac(double decimal){
+char *convert_to_binary_TEMPNAMNFIXA(double decimal){
 	char *binarD = malloc(sizeof(char) * N);
 	char *binarF = malloc(sizeof(char) * N);
 	int heltal = decimal;
