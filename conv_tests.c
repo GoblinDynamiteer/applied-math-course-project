@@ -14,12 +14,15 @@ Code used to test functions in libconvert library
 #include "test/tests.h"
 
 int main(){
-	//binary_tests(); -- OK
-	char *converted_base_n;
-	 
-	 //Test base 16 -- Shall be 2AE05  -- OK!
-	converted_base_n = convert_to_base(175621, 16);
-	puts(converted_base_n);
-	
+	puts("binary_tests:");
+	binary_tests();//-- OK
+	puts("\noctal_tests:");
+	octal_tests();//-- OK
+	puts("\nhexadecimal_tests:");
+	hexadecimal_tests();//-- OK
+	puts("\nhexadecimal_fraction_tests:");
+	hexadecimal_fraction_tests();//-- OK
+	puts("\nbinary_fraction_tests:");
+	binary_fraction_tests();//-- OK
 	return 0;
 }
