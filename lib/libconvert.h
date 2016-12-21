@@ -22,3 +22,4 @@ char *convert_to_binary_frac(double decimal);
 char *convert_to_binary_TEMPNAMNFIXA(double decimal);
 char *convert_to_base(int decimal, int base);
 char numToChar(int num);
+char *convert_to_base_frac(float dec_frac, int max_digits, int base);

@@ -77,13 +77,41 @@ char *convert_to_base(int decimal, int base){
 	return omvand;
 }
 
+//TEMP
+char *convert_to_base_frac(float dec_frac, int max_digits, int base){
+	char *base_frac = malloc(sizeof(char) * N);
+	//oix: omvandling index:
+	int oix = 0, num;
+	/* Parameter anses vara i form: 0.##### 
+	Därför sätts strängens början till .#
+	*/
+	base_frac[oix] = '.';
+	oix++;
+	if(!dec_frac){
+		base_frac[oix] = '0';
+		oix++;
+	}
+	else{
+		for(dec_frac=dec_frac*base; dec_frac != 0.0 && 
+		max_digits > 0; dec_frac=dec_frac*base){
+			num = dec_frac;
+			dec_frac = dec_frac - num ;
+			base_frac[oix] = numToChar(num);
+			oix++;
+			//printf("\nmax_digits: %d\n", max_digits);
+			max_digits--;
+		}
+	}
+	base_frac[oix] = '\0';
+	return base_frac;
+}
+
 //Konverterar int till char 0-9: 0-9 11+: A+
 char numToChar(int num){
 	char c;
 	/* ASCII-tecknet '0' har värdet 48, och siffran 0 har 0. 
 	För att konvertera talet 0 till tecknet '0', kan man således använda 
 	0 + '0'. Osv för 1,2,3 */
-	printf("numToChar: %d ", num);
 	if(0 <= num && num < 10){
 		c = num + '0';
 	}
@@ -94,7 +122,6 @@ char numToChar(int num){
 	else{
 		c = num + 'A' - 10;
 	}
-	printf("char: %c\n", c);
 	return c;
 }
 
