@@ -6,3 +6,4 @@
  *Built function convert_to_base: Converts decimal number to chosen base n. eg. dec->hex (base 16)
  *Built function numToChar: gets integer number, converts and returns string value. eg. 0 -> '0', 12 -> 'C'
  *Built function convert_to_base_frac, converts and returns fraction number, base 10 -> base n
+ *Built function convert_dec_to_base, uses other conversion function to convert any float decimal number to base n
