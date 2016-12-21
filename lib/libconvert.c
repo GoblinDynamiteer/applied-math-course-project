@@ -94,6 +94,19 @@ char numToChar(int num){
 	return c;
 }
 
+//Konverterar char 0-9: 0-9 : A-Z : 10-36(?)
+int charToNum(char num){
+	int n;
+	if(0 <= num && num < 10){
+		n = num - '0';
+	}
+	//toupper returnerar versalen av en char
+	else if ('A' <= toupper(num) && toupper(num) <= 'Z'){
+		n = num - 'A' - 10;
+	}
+	return n;
+}
+
 /* Använder funktionerna convert_to_base och convert_to_base_frac 
 för att konvertera ett flyttal till godtycklig bas 'base' */
 char *convert_dec_to_base(double dec_frac, int max_digits, int base){
@@ -126,6 +139,34 @@ char *convert_dec_to_base(double dec_frac, int max_digits, int base){
 	return strcat(base_int, base_float);
 }
 
+//Konverterar tal med basen 'base' till decimalt flyttal
+double convert_base_to_dec(char *base_frac, int max_digits, int base){
+	char *base_int = malloc(sizeof(char) * N);
+	char *base_float = malloc(sizeof(char) * N);
+	int i;
+	//Delar upp strängen till base_int & base_float, vardera sida om eventuellt kommatecken
+	for(i = 0; i < strlen(base_frac) - 1 && base_frac[i] != '.'; i++){
+		base_int[i] = base_frac[i];
+	}
+	base_int[i] == '\0';
+	if(base_frac[i++] == '.'){
+		int j = 0;
+		while(base_frac[i] != '\0'){
+			base_float[j] = base_frac[i];
+			i++; j++;
+		}
+	}
+	else{
+		base_frac[0] = '\0';
+	}
+	printf("STRINGS: %s   |   %s\n", base_int, base_float);
+	return 123.3;
+/* 	7DE is a hex number
+7DE = (7 * 162) + (13 * 161) + (14 * 160) 
+7DE = (7 * 256) + (13 * 16) + (14 * 1) 
+7DE = 1792 + 208 + 14 
+7DE = 2014 (in decimal number) */
+}
 
 
 //Gamla funktioner för konvertering från decimaltal till binärt:
