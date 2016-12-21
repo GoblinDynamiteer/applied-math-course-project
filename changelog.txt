@@ -2,3 +2,6 @@
  *Project Start
  *Added function library "libconvert", has functions for converting int to binary
  *Added tests.h for testing student written functions - tests.h is made by Tomas Kindahl
+ *Fixed return string 0 in convert_to_binary function, if parameter is 0 (number to convert)
+ *Built function convert_to_base: Converts decimal number to chosen base n. eg. dec->hex (base 16)
+ *Built function numToChar: gets integer number, converts and returns string value. eg. 0 -> '0', 12 -> 'C'
