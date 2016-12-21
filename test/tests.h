@@ -18,7 +18,7 @@ void binary_tests(void) {
    CHECK_DEC_TO_BASE(0, binstr, "0", "2");
 }
 
-void octal_tests(void) {
+/* void octal_tests(void) {
    char *octstr;
    octstr = convert_to_base(826, 8);
    CHECK_DEC_TO_BASE(826, octstr, "1472", "8");
@@ -71,3 +71,4 @@ void hexadecimal_fraction_tests(void) {
    hexstr = convert_to_base_frac(.0, 12, 16);
    CHECK_DECFRAC_TO_BASE(.0, hexstr, ".0", "16");
 }
+ */
