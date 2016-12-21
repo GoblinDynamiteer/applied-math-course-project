@@ -18,7 +18,7 @@ void binary_tests(void) {
    CHECK_DEC_TO_BASE(0, binstr, "0", "2");
 }
 
-/* void octal_tests(void) {
+void octal_tests(void) {
    char *octstr;
    octstr = convert_to_base(826, 8);
    CHECK_DEC_TO_BASE(826, octstr, "1472", "8");
@@ -41,6 +41,7 @@ void hexadecimal_tests(void) {
    hexstr = convert_to_base(0, 16);
    CHECK_DEC_TO_BASE(0, hexstr, "0", "16");
 }
+
 
 #define CHECK_DECFRAC_TO_BASE(VAR, CVAR, EXPECT, BASE) \
    if(0 == strcmp(CVAR, EXPECT)) \
@@ -71,4 +72,3 @@ void hexadecimal_fraction_tests(void) {
    hexstr = convert_to_base_frac(.0, 12, 16);
    CHECK_DECFRAC_TO_BASE(.0, hexstr, ".0", "16");
 }
- */
