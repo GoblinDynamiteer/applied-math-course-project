@@ -5,3 +5,4 @@
  *Fixed return string 0 in convert_to_binary function, if parameter is 0 (number to convert)
  *Built function convert_to_base: Converts decimal number to chosen base n. eg. dec->hex (base 16)
  *Built function numToChar: gets integer number, converts and returns string value. eg. 0 -> '0', 12 -> 'C'
+ *Built function convert_to_base_frac, converts and returns fraction number, base 10 -> base n
