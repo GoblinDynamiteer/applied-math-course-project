@@ -1,0 +1,4 @@
+2016-12-21:
+ *Project Start
+ *Added function library "libconvert", has functions for converting int to binary
+ *Added tests.h for testing student written functions - tests.h is made by Tomas Kindahl
