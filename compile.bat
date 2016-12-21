@@ -1,0 +1,1 @@
+gcc conv_tests.c lib\libconvert.c -o jp2016
