@@ -1,7 +1,7 @@
 /* 
 Mjukvaruutvecklare Inbyggda System
 Applicerad Yrkesmatematik
-Julprojekt 2016
+Julprojekt 2016/2017
 
 Johan Kämpe 
 
@@ -29,11 +29,12 @@ int main(){
 	char *converted_number;
 	puts("MANUAL CONVERSION");
 	while(1){
-		int dec, base;
+		int base = 2;
+		double dec;
 		printf("Enter decimal number and base: ");
-		scanf("%d %d", &dec, &base);
-		converted_number = convert_to_base(dec, base);
-		printf("%d(10) = %s(%d)\n", dec, converted_number, base);
+		scanf("%lf %d", &dec, &base);
+		converted_number = convert_dec_to_base(dec, 10, base);
+		printf("%.10f(10) = %s(%d)\n", dec, converted_number, base);
 	}
 	return 0;
 }
