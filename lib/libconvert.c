@@ -25,7 +25,7 @@ void vand(char *str){
 }
 
 //Konverterar dec (int) till binär (char array)
-char *convert_i_to_binary(int decimal){
+char *convert_to_binary(int decimal){
 	char *omvand = malloc(sizeof(char) * N);
 	//oix: omvandling index:
 	int t, oix;
@@ -48,7 +48,7 @@ char *convert_i_to_binary(int decimal){
 }
 
 //Konverterar float (double) till binär (char array)
-char *convert_f_to_binary(double decfloat){
+char *convert_to_binary_frac(double decfloat){
 	char *binarfloat = malloc(sizeof(char) * N);
 	//oix: omvandling index:
 	int oix, counter = 0;
@@ -79,7 +79,7 @@ char *convert_f_to_binary(double decfloat){
 
 /* Använder funktionerna convert_f_to_binary & convert_i_to_binary
 för att konvertera ett flyttal i decimalform till ett binärt flyttal */
-char *convert_to_binary(double decimal){
+char *convert_to_binary_intfrac(double decimal){
 	char *binarD = malloc(sizeof(char) * N);
 	char *binarF = malloc(sizeof(char) * N);
 	int heltal = decimal;
@@ -87,7 +87,7 @@ char *convert_to_binary(double decimal){
 	/* Om flyttal, anropas konverteringsfunktion, 
 	annars sätts sträng till nolltecken */
 	if(decimal > 0.00000000){
-		binarF = convert_f_to_binary(decimal);
+		binarF = convert_to_binary_frac(decimal);
 	}
 	else{
 		binarF[0] ='\0';
@@ -95,7 +95,7 @@ char *convert_to_binary(double decimal){
 	/* Om inmatat heltal är större än 1, 
 	annars sätts sträng till tecken 0 */
 	if(heltal > 0){
-		binarD = convert_i_to_binary(heltal);
+		binarD = convert_to_binary(heltal);
 	}
 	else{
 		binarD[0] ='0';
