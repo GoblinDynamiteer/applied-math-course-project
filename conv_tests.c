@@ -24,5 +24,16 @@ int main(){
 	hexadecimal_fraction_tests();//-- OK
 	puts("\nbinary_fraction_tests:");
 	binary_fraction_tests();//-- OK
+	
+	//Manual tests
+	char *converted_number;
+	puts("MANUAL CONVERSION");
+	while(1){
+		int dec, base;
+		printf("Enter decimal number and base: ");
+		scanf("%d %d", &dec, &base);
+		converted_number = convert_to_base(dec, base);
+		printf("%d(10) = %s(%d)\n", dec, converted_number, base);
+	}
 	return 0;
 }
