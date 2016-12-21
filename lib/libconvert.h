@@ -1,4 +1,11 @@
-#define N 256
+/* 
+Mjukvaruutvecklare Inbyggda System
+Applicerad Yrkesmatematik
+Julprojekt 2016
+
+Johan Kämpe 
+*/
+
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,3 +20,5 @@ void vand(char *str);
 char *convert_to_binary(int decimal);
 char *convert_to_binary_frac(double decimal);
 char *convert_to_binary_TEMPNAMNFIXA(double decimal);
+char *convert_to_base(int decimal, int base);
+char numToChar(int num);

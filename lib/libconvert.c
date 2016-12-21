@@ -6,9 +6,6 @@ Julprojekt 2016
 Johan Kämpe 
 */
 
-
-
-
 #include "libconvert.h"
 
 /* Vänder på en char-array. Används för konvertering
@@ -52,6 +49,53 @@ char *convert_to_binary(int decimal){
 	//Vänder på tecknen i char-arrayen
 	vand(omvand);
 	return omvand;
+}
+
+//Konverterar tal med bas 10 till tal med valfri bas 'base'
+char *convert_to_base(int decimal, int base){
+	char *omvand = malloc(sizeof(char) * N);
+	//oix: omvandling index:
+	int t, oix, num;
+	oix = 0;
+	//Om inkommande tal att omvandla är 0, returneras 0
+	if(!decimal){
+		omvand[oix] = '0';
+		oix++;
+	}
+	else{
+		/* Siffran är resten av delning med talbasen 'base'
+		på det decimala talet. */
+		for(t = decimal; t != 0; t=t/base){
+			num = t % base;
+			omvand[oix] = numToChar(num);
+			oix++;
+		}
+	}
+	omvand[oix] = '\0';
+	//Vänder på tecknen i char-arrayen
+	vand(omvand);
+	return omvand;
+}
+
+//Konverterar int till char 0-9: 0-9 11+: A+
+char numToChar(int num){
+	char c;
+	/* ASCII-tecknet '0' har värdet 48, och siffran 0 har 0. 
+	För att konvertera talet 0 till tecknet '0', kan man således använda 
+	0 + '0'. Osv för 1,2,3 */
+	printf("numToChar: %d ", num);
+	if(0 <= num && num < 10){
+		c = num + '0';
+	}
+	/* För tal över 9 används det versala alfabetet. A-Z
+	För att konvertera talet 10 till tecknet 'A', adderas värdet för 'A'
+	och sedan subtraheras 10. Således blir 11 = B, 12 = C osv.
+	*/
+	else{
+		c = num + 'A' - 10;
+	}
+	printf("char: %c\n", c);
+	return c;
 }
 
 //Konverterar float (double) till binär (char array)
