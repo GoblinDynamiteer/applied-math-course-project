@@ -62,7 +62,7 @@ char *convert_to_base_frac(double dec_frac, int max_digits, int base){
 		oix++;
 	}
 	else{
-		for(dec_frac=dec_frac*base; dec_frac != 0.0 && 
+		for(dec_frac = dec_frac*base; dec_frac != 0.0 && 
 		max_digits > 0; dec_frac=dec_frac*base){
 			num = dec_frac;
 			dec_frac = dec_frac - num ;
@@ -144,29 +144,37 @@ char *convert_dec_to_base(double dec_frac, int max_digits, int base){
 	return strcat(base_int, base_float);
 }
 
+
+char *convert_base_to_base(char *num_input, int max_digits, int base_input, int base_output){
+	return "A";
+}
+
 //Konverterar tal med basen 'base' till decimalt flyttal
 double convert_base_to_dec(char *base_frac, int max_digits, int base){
 	char *base_int = malloc(sizeof(char) * N);
 	char *base_float = malloc(sizeof(char) * N);
-	int i;
+	int string_length = strlen(base_frac);
 	//Delar upp strängen till base_int & base_float, vardera sida om eventuellt kommatecken
-	for(i = 0; i < strlen(base_frac) - 1 && base_frac[i] != '.'; i++){
+	int i = 0;
+	for(; i < string_length && base_frac[i] != '.'; i++){
 		base_int[i] = base_frac[i];
+		printf("base[%d] = %c \n", i, base_int[i]);
 	}
-	base_int[i] == '\0';
+	base_int[i+1] == '\0';
+	int num_int = convert_base_int_to_dec(base_int, base);
+	double num_float = 0.0;
 	if(base_frac[i++] == '.'){
 		int j = 0;
 		while(base_frac[i] != '\0'){
 			base_float[j] = base_frac[i];
 			i++; j++;
 		}
+		num_float = convert_base_frac_to_dec(base_float, base);
 	}
 	else{
-		base_frac[0] = '\0';
+		base_float[0] = '\0';
 	}
 	printf("STRINGS: %s   |   %s\n", base_int, base_float);
-	int num_int = convert_base_int_to_dec(base_int, base);
-	double num_float = convert_base_frac_to_dec(base_float, base);
 	return num_int + num_float;
 }
 
@@ -182,10 +190,10 @@ int convert_base_int_to_dec(char *base_int, int base){
 }
 
 double convert_base_frac_to_dec(char *base_float, int base){
-	int i = strlen(base_float) - 1, power_of = -1;
+	int string_length = strlen(base_float), power_of = -1;
 	double converted = 0.0;
-	for(int j = 0; j <= i; j++){
-		converted += charToNum(base_float[j]) * pow(base, power_of);
+	for(int i = 0; i < string_length; i++){
+		converted += charToNum(base_float[i]) * pow(base, power_of);
 		printf("**CONVERTER POW: base: %d pow %d ", base, power_of);
 		printf("**CONVERTER FRAC: NUM: %lf\n", converted);
 		power_of--;

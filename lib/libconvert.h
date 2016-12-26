@@ -31,6 +31,7 @@ double convert_base_to_dec(char *base_frac, int max_digits, int base);
 int convert_base_int_to_dec(char *base_int, int base);
 double convert_base_frac_to_dec(char *base_float, int base);
 
+char *convert_base_to_base(char *num_input, int max_digits, int base_input, int base_output);
 
 char numToChar(int num);
 int charToNum(char num);
