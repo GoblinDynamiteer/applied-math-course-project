@@ -96,14 +96,19 @@ char numToChar(int num){
 
 //Konverterar char 0-9: 0-9 : A-Z : 10-36(?)
 int charToNum(char num){
+	//printf("char->num c: %c", num);
 	int n;
-	if(0 <= num && num < 10){
+	if('0' <= num && num <= '9'){
+		//printf(" ( if 0<10 ) ");
 		n = num - '0';
 	}
 	//toupper returnerar versalen av en char
 	else if ('A' <= toupper(num) && toupper(num) <= 'Z'){
-		n = num - 'A' - 10;
+		//printf(" ( if ABC ) ");
+		//A = 10, B = 11 osv.
+		n = num - 'A' + 10;
 	}
+	//printf(" int: %d\n", n);
 	return n;
 }
 
@@ -160,7 +165,8 @@ double convert_base_to_dec(char *base_frac, int max_digits, int base){
 		base_frac[0] = '\0';
 	}
 	printf("STRINGS: %s   |   %s\n", base_int, base_float);
-	return 123.3;
+	int num_int = convert_base_int_to_dec(base_int, base);
+	return num_int + 0.0;
 /* 	7DE is a hex number
 7DE = (7 * 162) + (13 * 161) + (14 * 160) 
 7DE = (7 * 256) + (13 * 16) + (14 * 1) 
@@ -168,6 +174,23 @@ double convert_base_to_dec(char *base_frac, int max_digits, int base){
 7DE = 2014 (in decimal number) */
 }
 
+int convert_base_int_to_dec(char *base_int, int base){
+	int i = strlen(base_int) - 1, power_of = 0;
+	int converted = 0;
+	//printf("convert_base_int_to_dec : \n");
+	for(i; i >= 0; i--){
+		converted += charToNum(base_int[i]) * pow(base, power_of);
+		power_of++;
+/* 		printf("char: %c\n", base_int[i]);
+		printf("int: %d\n", charToNum(base_int[i])); */
+		
+	}
+	return converted;
+}
+
+double convert_base_frac_to_dec(char *base_float, int max_digits, int base){
+	return 0.3;
+}
 
 //Gamla funktioner för konvertering från decimaltal till binärt:
 
