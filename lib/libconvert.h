@@ -29,7 +29,7 @@ char *convert_dec_to_base(double dec_frac, int max_digits, int base);
 
 double convert_base_to_dec(char *base_frac, int max_digits, int base);
 int convert_base_int_to_dec(char *base_int, int base);
-double convert_base_frac_to_dec(char *base_float, int max_digits, int base);
+double convert_base_frac_to_dec(char *base_float, int base);
 
 
 char numToChar(int num);

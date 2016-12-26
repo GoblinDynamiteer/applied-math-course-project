@@ -166,30 +166,31 @@ double convert_base_to_dec(char *base_frac, int max_digits, int base){
 	}
 	printf("STRINGS: %s   |   %s\n", base_int, base_float);
 	int num_int = convert_base_int_to_dec(base_int, base);
-	return num_int + 0.0;
-/* 	7DE is a hex number
-7DE = (7 * 162) + (13 * 161) + (14 * 160) 
-7DE = (7 * 256) + (13 * 16) + (14 * 1) 
-7DE = 1792 + 208 + 14 
-7DE = 2014 (in decimal number) */
+	double num_float = convert_base_frac_to_dec(base_float, base);
+	return num_int + num_float;
 }
+
 
 int convert_base_int_to_dec(char *base_int, int base){
 	int i = strlen(base_int) - 1, power_of = 0;
 	int converted = 0;
-	//printf("convert_base_int_to_dec : \n");
 	for(i; i >= 0; i--){
 		converted += charToNum(base_int[i]) * pow(base, power_of);
 		power_of++;
-/* 		printf("char: %c\n", base_int[i]);
-		printf("int: %d\n", charToNum(base_int[i])); */
-		
 	}
 	return converted;
 }
 
-double convert_base_frac_to_dec(char *base_float, int max_digits, int base){
-	return 0.3;
+double convert_base_frac_to_dec(char *base_float, int base){
+	int i = strlen(base_float) - 1, power_of = -1;
+	double converted = 0.0;
+	for(int j = 0; j <= i; j++){
+		converted += charToNum(base_float[j]) * pow(base, power_of);
+		printf("**CONVERTER POW: base: %d pow %d ", base, power_of);
+		printf("**CONVERTER FRAC: NUM: %lf\n", converted);
+		power_of--;
+	}
+	return converted;
 }
 
 //Gamla funktioner för konvertering från decimaltal till binärt:
