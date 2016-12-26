@@ -9,3 +9,7 @@
  *Built function convert_dec_to_base, uses other conversion function to convert any float decimal number to base n
  *Built function charToNum: gets char, from integer.
  *Started building function to convert fractal base n to decimal
+
+2016-12-26:
+ *Built "sub"-function to convert fractal base n to decimal, int part
+ *Started building "sub"-function to convert fractal base n to decimal, fractal part
