@@ -11,5 +11,8 @@
  *Started building function to convert fractal base n to decimal
 
 2016-12-26:
- *Built "sub"-function to convert fractal base n to decimal, int part
- *Started building "sub"-function to convert fractal base n to decimal, fractal part
+ *Built function to convert fractal base n to decimal, int part
+ *Built function to convert fractal base n to decimal, fractal part
+ *Function to convert fractal base n to decimal completed
+ *Started building function to convert fractal base n to any base n
+ 
