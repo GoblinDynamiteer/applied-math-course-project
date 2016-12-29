@@ -82,22 +82,31 @@ char *convertIntDecToBase(int decimal, int base){
 /* Konverterar decimaltal < 1 'decimal' till tal med talbas 'base' */
 char *convertFracDecToBase(double decimal, int maxDigits, int base){
 	char *converted = malloc(sizeof(char) * N);
-	int i = 0, num; // i: index för char-array 'converted'
-	/* Parameter anses vara i form: 0.##### 
-	Därför sätts strängens början till .# 	*/
-	converted[i] = '.';
-	i++;
+	int i = 1, num; // i: index för char-array 'converted'
+	/* Funktionens returvärde ska vara i form: '.XXXX'
+		Därför sätts strängens början till '.' och index börjar på 1	*/
+	converted[0] = '.';
+	/* Om 'decimal' är 0, sätts textsträngen 'converted' till tecknet '0' och
+		loop för omvandling till annan talbas hoppas över. */
 	if(!decimal){
 		converted[i] = '0';
-		i++;
+		i++; //För att sätta nolltecken
 	}
+	/* Algoritm för konvertering av decimala tal < 0 till talbas 'base':
+			-	Multiplicera det decimala talet med 'base'
+			-	Heltalsvärdet innan kommatecken är den första 
+				siffran i det konverterade värdet
+			-	Subtrahera heltalsvärdet från det multiplicerade värdet
+			-	Börja om med steg 1, tills det multiplicerade värdet är 0 */
 	else{
-		for(decimal = decimal * base; decimal != 0.0 && 
-		maxDigits; decimal=decimal * base){
+		for(decimal *= base; decimal != 0.000000 && maxDigits; decimal *= base){
+			/*	'num' är av typen int och kan enbart hålla heltalsdelen av 'decimal' */
 			num = decimal;
-			decimal = decimal - num ;
+			decimal = decimal - num;
 			converted[i] = numToChar(num);
 			i++;
+			/*	maxDigits anger hur många siffror det konverterade värdet ska ha,
+				i fall det inte går jämnt ut eller är stort */
 			maxDigits--;
 		}
 	}
