@@ -1,3 +1,8 @@
+TODO
+ - Check typecasting of int x = double y. Is rounding correct?
+ - Clean up code
+ - Add comments.
+
 2016-12-21:
  *Project Start
  *Added function library "libconvert", has functions for converting int to binary
@@ -16,3 +21,7 @@
  *Function to convert fractal base n to decimal completed
  *Started building function to convert fractal base n to any base n
  
+2016-12-29:
+ *Finished building function to convert fractal base n to any base n
+ *Extensive renaming of functions and variables
+ *Fixed rounding of return value from pow() function.
