@@ -4,7 +4,7 @@
    if(0 == strcmp(CVAR, EXPECT)) \
       printf("SUCCESS %d(10) = " EXPECT "(" BASE ") = %s(" BASE ")\n", VAR, CVAR); \
    else \
-      printf("FAILURE %d(10) = " EXPECT "(" BASE ") =/= %s(" BASE ")\n", VAR, CVAR);
+      printf("** FAILURE %d(10) = " EXPECT "(" BASE ") =/= %s(" BASE ")\n", VAR, CVAR);
 
 /* void binary_tests(void) {
    char *binstr;
@@ -47,7 +47,7 @@ void hexadecimal_tests(void) {
    if(0 == strcmp(CVAR, EXPECT)) \
       printf("SUCCESS %g(10) = " EXPECT "(" BASE ") = %s(" BASE ")\n", VAR, CVAR); \
    else \
-      printf("FAILURE %g(10) = " EXPECT "(" BASE ") =/= %s(" BASE ")\n", VAR, CVAR);
+      printf("** FAILURE %g(10) = " EXPECT "(" BASE ") =/= %s(" BASE ")\n", VAR, CVAR);
 
 void binary_fraction_tests(void) {
    char *binstr;
@@ -65,9 +65,9 @@ void hexadecimal_fraction_tests(void) {
    char *hexstr;
    hexstr = convertFracDecToBase(.375, 10, 16);
    CHECK_DECFRAC_TO_BASE(.375, hexstr, ".6", "16");
-   hexstr = convertFracDecToBase(.1, 10, 16);
-   CHECK_DECFRAC_TO_BASE(.1, hexstr, ".199999A", "16");
-   hexstr = convertFracDecToBase(.1416, 10, 16);
+   hexstr = convertFracDecToBase(.1, /* 10 */7, 16);
+   CHECK_DECFRAC_TO_BASE(.1, hexstr, ".199999A", "16"); //Hur avrunda?
+   hexstr = convertFracDecToBase(.1416, /* 10 */7, 16);
    CHECK_DECFRAC_TO_BASE(.1416, hexstr, ".243FE5C", "16");
    hexstr = convertFracDecToBase(.0, 12, 16);
    CHECK_DECFRAC_TO_BASE(.0, hexstr, ".0", "16");
@@ -82,7 +82,7 @@ void hexadecimal_fraction_tests(void) {
    if(0 == strcmp(CVAR, EXPECT)) \
       printf("SUCCESS %g(10) = " EXPECT "(" BASE ") = %s(" BASE ")\n", VAR, CVAR); \
    else \
-      printf("FAILURE %g(10) = " EXPECT "(" BASE ") =/= %s(" BASE ")\n", VAR, CVAR);
+      printf("** FAILURE %g(10) = " EXPECT "(" BASE ") =/= %s(" BASE ")\n", VAR, CVAR);
 	  
 void hexadecimal_full_tests(void) {
    char *hexstr;
@@ -92,7 +92,7 @@ void hexadecimal_full_tests(void) {
    hexstr = convertDecToBase(365.1264, 11, 16);
    CHECK_DECFRAC_TO_BASE(365.1264, hexstr, "16D.205BC01A36E", "16");
    hexstr = convertDecToBase(0.65, 5, 16);
-   CHECK_DECFRAC_TO_BASE(365.1264, hexstr, "0.A6666", "16");
+   CHECK_DECFRAC_TO_BASE(0.65, hexstr, "0.A6666", "16");
    hexstr = convertDecToBase(171.0, 10, 16); //Måste slås in som med 0 efter decimal för min funktion
    CHECK_DECFRAC_TO_BASE(171.0, hexstr, "AB", "16");
 }
