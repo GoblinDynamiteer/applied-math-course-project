@@ -1,5 +1,7 @@
 TODO
  - Check typecasting of int x = double y. Is rounding correct?
+ - Build function that trims zeroes from right in string, eg 11.33000 -> 11.33
+ - Build own power of-function?
  - Clean up code
  - Add comments.
 
