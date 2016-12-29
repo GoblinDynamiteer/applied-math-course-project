@@ -14,6 +14,7 @@ Johan Kämpe
 
 //Antal tecken för textsträngar
 #define N 256
+#define SMALLNUM 0.0000000000
 
 //Antal siffror efter kommatecken, för binära flyttal
 #define DECIMALTECKEN 10

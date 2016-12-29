@@ -99,13 +99,13 @@ char *convertFracDecToBase(double decimal, int maxDigits, int base){
 			-	Subtrahera heltalsvärdet från det multiplicerade värdet
 			-	Börja om med steg 1, tills det multiplicerade värdet är 0 */
 	else{
-		for(decimal *= base; decimal != 0.000000 && maxDigits; decimal *= base){
+		for(decimal *= base; decimal != SMALLNUM && maxDigits; decimal *= base){
 			/*	'num' är av typen int och kan enbart hålla heltalsdelen av 'decimal' */
 			num = decimal;
 			decimal = decimal - num;
 			converted[i] = numToChar(num);
 			i++;
-			/*	maxDigits anger hur många siffror det konverterade värdet ska ha,
+			/*	'maxDigits' anger hur många siffror det konverterade värdet ska ha,
 				i fall det inte går jämnt ut eller är stort */
 			maxDigits--;
 		}
@@ -123,7 +123,7 @@ char *convertDecToBase(double decimal, int maxDigits, int base){
 	decimal = decimal - num;
 	/* Om flyttal, anropas konverteringsfunktion, 
 	annars sätts sträng till nolltecken */
-	if(decimal > 0.0000000000){
+	if(decimal > SMALLNUM){
 		baseFrac = convertFracDecToBase(decimal, maxDigits, base);
 	}
 	else{
