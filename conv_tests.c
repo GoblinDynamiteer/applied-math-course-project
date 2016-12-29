@@ -14,8 +14,6 @@ Code used to test functions in libconvert library
 #include "test/tests.h"
 
 int main(){
-	//puts("binary_tests:");
-	//binary_tests();//-- OK
 	puts("\noctal_tests:");
 	octal_tests();//-- OK
 	puts("\nhexadecimal_tests:");
@@ -23,7 +21,7 @@ int main(){
 	puts("\nhexadecimal_fraction_tests:");
 	hexadecimal_fraction_tests();//-- OK
 	puts("\nbinary_fraction_tests:");
-	binary_fraction_tests();//-- OK
+	binary_fraction_tests();//-- OK 
 	
 	//Manual tests
 	char *converted_number;
@@ -36,8 +34,7 @@ int main(){
 		char num[N];
 		printf("Enter number | base-in | base-out: ");
 		scanf("%s %d %d", &num, &base, &base2);
-		converted_number = convert_base_to_base(num, 10, base, base2);
-		printf("base2: %d\n", base2);
+		converted_number = convertBaseToBase(num, 10, base, base2);
 		printf("%s(%d) = %s(%d)\n", num, base, converted_number, base2);
 	}
 	return 0;
