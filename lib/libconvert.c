@@ -146,7 +146,10 @@ char *convert_dec_to_base(double dec_frac, int max_digits, int base){
 
 
 char *convert_base_to_base(char *num_input, int max_digits, int base_input, int base_output){
-	return "A";
+	double dec = convert_base_to_dec(num_input, max_digits, base_input);
+	char *converted = malloc(sizeof(char) * N);
+	converted = convert_dec_to_base(dec, max_digits, base_output);
+	return converted;
 }
 
 //Konverterar tal med basen 'base' till decimalt flyttal
@@ -199,95 +202,4 @@ double convert_base_frac_to_dec(char *base_float, int base){
 		power_of--;
 	}
 	return converted;
-}
-
-//Gamla funktioner för konvertering från decimaltal till binärt:
-
-//Konverterar dec (int) till binär (char array)
-char *convert_to_binary(int decimal){
-	char *omvand = malloc(sizeof(char) * N);
-	//oix: omvandling index:
-	int t, oix;
-	oix = 0;
-	//Om inkommande tal att omvandla är 0, returneras 0
-	if(!decimal){
-		omvand[oix] = '0';
-		oix++;
-	}
-	else{
-		/* Den binära siffran är resten av delning med 2
-		på det decimala talet. */
-		for(t = decimal; t != 0; t=t/2){
-			if(t%2 == 1){
-				omvand[oix] = '1';
-			}
-			else{
-				omvand[oix] = '0';
-			}
-			oix++;
-		}
-	}
-	omvand[oix] = '\0';
-	//Vänder på tecknen i char-arrayen
-	vand(omvand);
-	return omvand;
-}
-
-//Konverterar float (double) till binär (char array)
-char *convert_to_binary_frac(double decfloat){
-	char *binarfloat = malloc(sizeof(char) * N);
-	//oix: omvandling index:
-	int oix, counter = 0;
-	/* Parameter anses vara i form: 0.##### 
-	Därför sätts binära strängens början till 0.#
-	*/
-	binarfloat[0] = '0';
-	binarfloat[1] = '.';
-	oix = 2;
-	for(decfloat=decfloat*2; decfloat != 0.0 || 
-		counter > DECIMALTECKEN; decfloat=decfloat*2){
-		if(decfloat >= 1.0){
-			decfloat = decfloat - 1.0;
-			binarfloat[oix] = '1';
-		}
-		else{
-			binarfloat[oix] = '0';
-		}
-		oix++;
-		counter++;
-		if(counter == 20){
-			break;
-		}
-	}
-	binarfloat[oix] = '\0';
-	return binarfloat;
-}
-
-/* Använder funktionerna convert_to_binary_frac & convert_to_binary
-för att konvertera ett flyttal i decimalform till ett binärt flyttal */
-char *convert_decimal_to_binary(double decimal){
-	char *binarD = malloc(sizeof(char) * N);
-	char *binarF = malloc(sizeof(char) * N);
-	int heltal = decimal;
-	decimal = decimal - heltal;
-	/* Om flyttal, anropas konverteringsfunktion, 
-	annars sätts sträng till nolltecken */
-	if(decimal > 0.00000000){
-		binarF = convert_to_binary_frac(decimal);
-	}
-	else{
-		binarF[0] ='\0';
-	}
-	/* Om inmatat heltal är större än 1, 
-	annars sätts sträng till tecken 0 */
-	if(heltal > 0){
-		binarD = convert_to_binary(heltal);
-	}
-	else{
-		binarD[0] ='0';
-		binarD[1] ='\0';
-	}
-	/* Returnerar sammansatta char-arrayer, 
-	+1 för att få bort den initiala nollan i strängen binarF */
-	return strcat(binarD, binarF+1);
 }

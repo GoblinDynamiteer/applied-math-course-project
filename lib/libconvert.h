@@ -19,9 +19,6 @@ Johan Kämpe
 #define DECIMALTECKEN 10
 
 void vand(char *str);
-char *convert_to_binary(int decimal);
-char *convert_to_binary_frac(double decimal);
-char *convert_decimal_to_binary(double decimal);
 
 char *convert_to_base(int decimal, int base);
 char *convert_to_base_frac(double dec_frac, int max_digits, int base);
