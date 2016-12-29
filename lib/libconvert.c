@@ -73,7 +73,7 @@ char *convertIntDecToBase(int decimal, int base){
 			i++;
 		}
 	}
-	converted[i] = '\0';
+	converted[i+1] = '\0';
 	//Vänder på tecknen i char-arrayen
 	reverseString(converted);
 	return converted;
@@ -119,7 +119,7 @@ char *convertDecToBase(double decimal, int maxDigits, int base){
 	char *baseInt = malloc(sizeof(char) * N);
 	char *baseFrac = malloc(sizeof(char) * N);
 	/* "Plockar ut" heltalet från decimal till num */
-	int num = decimal;
+	int num = (int)decimal;
 	decimal = decimal - num;
 	/* Om flyttal, anropas konverteringsfunktion, 
 	annars sätts sträng till nolltecken */
@@ -188,12 +188,19 @@ double convertBaseToDec(char *number, int base){
 	return convertedInt + convertedFrac;
 }
 
+//*****BUG: NÅGOT TOKIGT I LOOPEN! FIXA 2*10^2 sätts till 199..
+//Ev. FIXAT - KONTROLLERA!
+
 /*	Konverterar heltal 'number' med talbas 'base' till decimalt heltal */
 int convertIntBaseToDec(char *number, int base){
 	int i = strlen(number) - 1, powerOf = 0;
 	int converted = 0;
 	for(i; i >= 0; i--){
-		converted += charToNum(number[i]) * pow(base, powerOf);
+		/* funktionen pow() från math.h strulade med avrdundning när jag 
+			adderade till 'converted' i varje varv. Är eventuellt fixat med typecasting
+			till (int) samt addering av 0.5 */
+		//gammal: converted += charToNum(number[i]) * pow(base, powerOf);
+		converted += charToNum(number[i]) * (int)(pow(base, powerOf) + 0.5);
 		powerOf++;
 	}
 	return converted;
