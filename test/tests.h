@@ -6,7 +6,7 @@
    else \
       printf("FAILURE %d(10) = " EXPECT "(" BASE ") =/= %s(" BASE ")\n", VAR, CVAR);
 
-void binary_tests(void) {
+/* void binary_tests(void) {
    char *binstr;
    binstr = convert_to_binary(826);
    CHECK_DEC_TO_BASE(826, binstr, "1100111010", "2");
@@ -16,7 +16,7 @@ void binary_tests(void) {
    CHECK_DEC_TO_BASE(255, binstr, "11111111", "2");
    binstr = convert_to_binary(0);
    CHECK_DEC_TO_BASE(0, binstr, "0", "2");
-}
+} */
 
 void octal_tests(void) {
    char *octstr;
