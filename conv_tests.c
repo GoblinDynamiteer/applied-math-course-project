@@ -22,13 +22,15 @@ int main(){
 	hexadecimal_fraction_tests();//-- OK
 	puts("\nbinary_fraction_tests:");
 	binary_fraction_tests();//-- OK 
+	puts("\nhexadecimal_full_tests:");
+	hexadecimal_full_tests();
 	
 	//Manual tests
 	char *converted_number;
 	double  converted_number2;
-	puts("MANUAL CONVERSION BAS -> BAS");
+	puts("MANUAL CONVERSION BASE -> BASE");
 
-	//HEX 3A == OCT 72
+	//HEX 3A = OCT 72
 	while(1){
 		int base = 2, base2 = 3;
 		char num[N];
