@@ -25,7 +25,7 @@ char *convertIntDecToBase(int decimal, int base);
 char *convertFracDecToBase(double decimal, int maxDigits, int base);
 char *convertDecToBase(double decimal, int maxDigits, int base);
 
-double convertBaseToDec(char *number, int maxDigits, int base);
+double convertBaseToDec(char *number, int base);
 int convertIntBaseToDec(char *number, int base);
 double convertFracBaseToDec(char *number, int base);
 

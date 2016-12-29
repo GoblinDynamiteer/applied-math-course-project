@@ -144,14 +144,14 @@ char *convertDecToBase(double decimal, int maxDigits, int base){
 
 /* Konverterar tal 'number' med talbas 'baseIn' till tal med talbas 'baseOut' */
 char *convertBaseToBase(char *number, int maxDigits, int baseIn, int baseOut){
-	double convertedDecimal = convertBaseToDec(number, 30, baseIn);
+	double convertedDecimal = convertBaseToDec(number, baseIn);
 	char *converted = malloc(sizeof(char) * N);
 	converted = convertDecToBase(convertedDecimal, maxDigits, baseOut);
 	return converted;
 }
 
 /* Konverterar tal 'number' med talbas 'base' till decimalt tal */
-double convertBaseToDec(char *number, int maxDigits, int base){
+double convertBaseToDec(char *number, int base){
 	char *baseInt = malloc(sizeof(char) * N);
 	char *baseFrac = malloc(sizeof(char) * N);
 	int stringLength = strlen(number);
