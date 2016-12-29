@@ -72,3 +72,27 @@ void hexadecimal_fraction_tests(void) {
    hexstr = convertFracDecToBase(.0, 12, 16);
    CHECK_DECFRAC_TO_BASE(.0, hexstr, ".0", "16");
 }
+
+
+
+
+//Johans Tester
+
+#define CHECK_DEC_INT_FRAC_TO_BASE(VAR, CVAR, EXPECT, BASE) \
+   if(0 == strcmp(CVAR, EXPECT)) \
+      printf("SUCCESS %g(10) = " EXPECT "(" BASE ") = %s(" BASE ")\n", VAR, CVAR); \
+   else \
+      printf("FAILURE %g(10) = " EXPECT "(" BASE ") =/= %s(" BASE ")\n", VAR, CVAR);
+	  
+void hexadecimal_full_tests(void) {
+   char *hexstr;
+   //VÄRDEN FRÅN http://www.statman.info/conversions/hexadecimal.html
+   hexstr = convertDecToBase(12.5, 10, 16);
+   CHECK_DECFRAC_TO_BASE(12.5, hexstr, "C.8", "16");
+   hexstr = convertDecToBase(365.1264, 11, 16);
+   CHECK_DECFRAC_TO_BASE(365.1264, hexstr, "16D.205BC01A36E", "16");
+   hexstr = convertDecToBase(0.65, 5, 16);
+   CHECK_DECFRAC_TO_BASE(365.1264, hexstr, "0.A6666", "16");
+   hexstr = convertDecToBase(171.0, 10, 16); //Måste slås in som med 0 efter decimal för min funktion
+   CHECK_DECFRAC_TO_BASE(171.0, hexstr, "AB", "16");
+}
