@@ -79,10 +79,10 @@ char *convertIntDecToBase(int decimal, int base){
 	return converted;
 }
 
-//Konverterar decimalt flyttal till tal med basen 'base'
+/* Konverterar decimaltal < 1 'decimal' till tal med talbas 'base' */
 char *convertFracDecToBase(double decimal, int maxDigits, int base){
 	char *converted = malloc(sizeof(char) * N);
-	int i = 0, num; // i: index för char-array converted
+	int i = 0, num; // i: index för char-array 'converted'
 	/* Parameter anses vara i form: 0.##### 
 	Därför sätts strängens början till .# 	*/
 	converted[i] = '.';
@@ -105,6 +105,7 @@ char *convertFracDecToBase(double decimal, int maxDigits, int base){
 	return converted;
 }
 
+/* Konverterar decimaltal 'decimal' till tal med talbas 'base' */
 char *convertDecToBase(double decimal, int maxDigits, int base){
 	char *baseInt = malloc(sizeof(char) * N);
 	char *baseFrac = malloc(sizeof(char) * N);
@@ -132,7 +133,7 @@ char *convertDecToBase(double decimal, int maxDigits, int base){
 	return strcat(baseInt, baseFrac);
 }
 
-
+/* Konverterar tal 'number' med talbas 'baseIn' till tal med talbas 'baseOut' */
 char *convertBaseToBase(char *number, int maxDigits, int baseIn, int baseOut){
 	double convertedDecimal = convertBaseToDec(number, 30, baseIn);
 	char *converted = malloc(sizeof(char) * N);
@@ -140,34 +141,45 @@ char *convertBaseToBase(char *number, int maxDigits, int baseIn, int baseOut){
 	return converted;
 }
 
-//Konverterar tal med basen 'base' till decimalt flyttal
+/* Konverterar tal 'number' med talbas 'base' till decimalt tal */
 double convertBaseToDec(char *number, int maxDigits, int base){
 	char *baseInt = malloc(sizeof(char) * N);
 	char *baseFrac = malloc(sizeof(char) * N);
 	int stringLength = strlen(number);
-	//Delar upp strängen till baseInt & baseFrac, vardera sida om eventuellt kommatecken
+	/* Delar upp 'number' till 'baseInt' & 'baseFrac'
+		vardera sida om eventuella kommatecken */
 	int i = 0;
 	for(; i < stringLength && number[i] != '.'; i++){
+		/* Tecken i 'number' sätts till 'baseInt', tills alla tecken
+			är skrivna, eller tills kommatecken ( . )  hittas. */
 		baseInt[i] = number[i];
 	}
-	baseInt[i+1] == '\0';
+	baseInt[i+1] == '\0'; //Nolltecken skrivs
+	/* Heltalet 'baseInt' konverteras till decimalt tal,
+		som sätts till 'convertedInt'	*/
 	int convertedInt = convertIntBaseToDec(baseInt, base);
+	/* 'convertedFrac' används för värdet efter decimaltecken i 'number',
+		om finns.	*/
 	double convertedFrac = 0.0;
+	/* Om kommatecken ( . ) finns i 'number' efter kopiering till 'baseInt',
+		kopieras resten av tecknen till 'baseFrac' */
 	if(number[i++] == '.'){
 		int j = 0;
 		while(number[i] != '\0'){
 			baseFrac[j] = number[i];
 			i++; j++;
 		}
+		/* Värdet 'baseFrac' konverteras till decimalt tal,
+			som sätts till 'convertedFrac' */
 		convertedFrac = convertFracBaseToDec(baseFrac, base);
 	}
-	else{
-		baseFrac[0] = '\0';
+	else{	// Eventuellt onödigt
+		baseFrac[0] = '\0'; 
 	}
 	return convertedInt + convertedFrac;
 }
 
-
+/*	Konverterar heltal 'number' med talbas 'base' till decimalt heltal */
 int convertIntBaseToDec(char *number, int base){
 	int i = strlen(number) - 1, powerOf = 0;
 	int converted = 0;
@@ -178,6 +190,7 @@ int convertIntBaseToDec(char *number, int base){
 	return converted;
 }
 
+/*	Konverterar tal < 1 'number' med talbas 'base' till decimalt tal */
 double convertFracBaseToDec(char *number, int base){
 	int stringLength = strlen(number), powerOf = -1;
 	double converted = 0.0;
