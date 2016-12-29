@@ -96,3 +96,22 @@ void hexadecimal_full_tests(void) {
    hexstr = convertDecToBase(171.0, 10, 16); //Måste slås in som med 0 efter decimal för min funktion
    CHECK_DECFRAC_TO_BASE(171.0, hexstr, "AB", "16");
 }
+
+#define CHECK_BASE_TO_BASE(VAR, CVAR, EXPECT, BASE) \
+   if(0 == strcmp(CVAR, EXPECT)) \
+      printf("SUCCESS %g(10) = " EXPECT "(" BASE ") = %s(" BASE ")\n", VAR, CVAR); \
+   else \
+      printf("** FAILURE %g(10) = " EXPECT "(" BASE ") =/= %s(" BASE ")\n", VAR, CVAR);
+	  
+
+//Konverterar från talbas 10 till talbas 10, ska bli samma!
+//char *convertBaseToBase(char *number, int maxDigits, int baseIn, int baseOut);
+void dec_to_dec_tests(void) {
+   char *decstr;
+   decstr = convertBaseToBase("12456.789", 10, 10, 10);
+	CHECK_BASE_TO_BASE(12456.789, decstr, "12456.789", "10");
+   decstr = convertBaseToBase("0.98092", 10, 10, 10);
+   CHECK_BASE_TO_BASE(0.98092, decstr, "0.98092", "10");
+   decstr = convertBaseToBase("99999.0", 10, 10, 10);
+   CHECK_BASE_TO_BASE(99999.0, decstr, "99999.0", "10");
+}
