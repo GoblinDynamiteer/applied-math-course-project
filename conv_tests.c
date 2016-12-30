@@ -24,6 +24,8 @@ int main(){
 	binary_fraction_tests();//-- OK 
 	puts("\nhexadecimal_full_tests:");
 	hexadecimal_full_tests();
+	puts("\ndec_to_dec_tests:");
+	dec_to_dec_tests();
 	
 	//Manual tests
 	char *converted_number;
