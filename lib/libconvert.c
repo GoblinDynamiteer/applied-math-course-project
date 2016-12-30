@@ -73,7 +73,7 @@ char *convertIntDecToBase(int decimal, int base){
 			i++;
 		}
 	}
-	converted[i+1] = '\0';
+	converted[i] = '\0';
 	//Vänder på tecknen i char-arrayen
 	reverseString(converted);
 	return converted;
@@ -198,7 +198,10 @@ int convertIntBaseToDec(char *number, int base){
 	for(i; i >= 0; i--){
 		/* funktionen pow() från math.h strulade med avrdundning när jag 
 			adderade till 'converted' i varje varv. Är eventuellt fixat med typecasting
-			till (int) samt addering av 0.5 */
+			till (int) samt addering av 0.5 
+			Finns det risk att den blir för stor? Jag hade problemet att den blev 1 för liten.
+			Bygg egen funktion?
+			*/
 		//gammal: converted += charToNum(number[i]) * pow(base, powerOf);
 		converted += charToNum(number[i]) * (int)(pow(base, powerOf) + 0.5);
 		powerOf++;
