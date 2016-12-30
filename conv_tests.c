@@ -27,28 +27,32 @@ int main(){
 	puts("\ndec_to_dec_tests:");
 	dec_to_dec_tests();
 	
-	puts("powerOf func tests");
+/* 	puts("powerOf func tests");
 	while(1){
 		int b, i;
 		printf("Enter number, power of: ");
 		scanf("%d %d", &b, &i);
 		printf("Result: %g\n", powerOf(b,i));
 		printf("Result pow(): %g\n", pow(b,i));
-	}
+	} */
 	
 	//Manual tests
-	char *converted_number;
-	double  converted_number2;
+	char *converted;
+
 	puts("MANUAL CONVERSION BASE -> BASE");
-	
-	//HEX 3A = OCT 72
+	//http://www.cleavebooks.co.uk/scol/calnumba.htm
 	while(1){
-		int base = 2, base2 = 3;
+		int base = 2;
 		char num[N];
-		printf("Enter number | base-in | base-out: ");
-		scanf("%s %d %d", &num, &base, &base2);
-		converted_number = convertBaseToBase(num, 10, base, base2);
-		printf("%s(%d) = %s(%d)\n", num, base, converted_number, base2);
+		printf("Enter number & base: ");
+		scanf("%s %d", &num, &base);
+		printf("\nInput: %s (%d)\n", num, base);
+		printf("*****************************\n");
+		for(int baseOut = 2; baseOut < 25; baseOut++){
+			converted = convertBaseToBase(num, 10, base, baseOut);
+			printf("Base %2d:  %s\n", baseOut, converted);
+		}
+		printf("*****************************\n");
 	}
 	return 0;
 }
