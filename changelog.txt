@@ -30,3 +30,4 @@ TODO
  *Corrected faulty setting of null terminator in function convertIntDecToBase
  *Built function stripZeroes, removes trailing zeroes from a string
  *Built function powerOf, might use instead of pow() from math.h
+ *Extended manual conversion to display an output list for different bases
