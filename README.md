@@ -32,3 +32,8 @@ Using function library for binary arithmetic
 ![Shot 3](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img011_binaritm.PNG)
 
 
+Using function library for hexadecimal arithmetic
+
+![Shot 4](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img012.PNG)
+
+
