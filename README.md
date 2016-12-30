@@ -18,6 +18,8 @@ Also
 - Function that converts #.##(base) to #.##(base)
 
 
+Comments in libconvert code is in swedish.
+
 ---
 
 **Screenshots:**
