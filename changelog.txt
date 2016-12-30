@@ -1,6 +1,5 @@
 TODO
  - Check typecasting of int x = double y. Is rounding correct?
- - Build own power of-function?
  - Clean up code
  - Add comments.
 
@@ -30,3 +29,4 @@ TODO
 2016-12-30
  *Corrected faulty setting of null terminator in function convertIntDecToBase
  *Built function stripZeroes, removes trailing zeroes from a string
+ *Built function powerOf, might use instead of pow() from math.h

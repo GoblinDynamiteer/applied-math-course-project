@@ -34,3 +34,4 @@ char *convertBaseToBase(char *number, int maxDigits, int baseIn, int baseOut);
 
 char numToChar(int num);
 int charToNum(char num);
+double powerOf(int base, int i);

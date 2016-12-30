@@ -27,11 +27,20 @@ int main(){
 	puts("\ndec_to_dec_tests:");
 	dec_to_dec_tests();
 	
+	puts("powerOf func tests");
+	while(1){
+		int b, i;
+		printf("Enter number, power of: ");
+		scanf("%d %d", &b, &i);
+		printf("Result: %g\n", powerOf(b,i));
+		printf("Result pow(): %g\n", pow(b,i));
+	}
+	
 	//Manual tests
 	char *converted_number;
 	double  converted_number2;
 	puts("MANUAL CONVERSION BASE -> BASE");
-
+	
 	//HEX 3A = OCT 72
 	while(1){
 		int base = 2, base2 = 3;

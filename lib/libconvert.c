@@ -67,6 +67,28 @@ void stripZeroes(char *str){
 	}
 }
 
+/*	Egen funktion för "upphöjt med". */
+double powerOf(int base, int i){
+	double sum = 1.0;
+	if(i == 0){
+		;
+	}
+	else if(i > 0){
+		while(i){
+			sum *= base;
+			i--;
+		}
+	}
+	else if(i < 0){
+		while(i){
+			sum /= base;
+			i++;
+		}
+	}
+	return sum;
+}
+
+
 //Konverterar heltal med bas 10 till heltal med valfri talbas
 char *convertIntDecToBase(int decimal, int base){
 	char *converted = malloc(sizeof(char) * N);
