@@ -55,6 +55,18 @@ int charToNum(char num){
 	return n;
 }
 
+/* Plockar bort nollor högerifrån i en sträng.
+	Används för att t.ex. konvertera 0.23100 -> 0.231 */
+void stripZeroes(char *str){
+	int i = strlen(str) - 1;
+	if(str[i] == '0'){
+		while(str[i-1] == '0'){
+			i--;
+		}
+		str[i] = '\0';
+	}
+}
+
 //Konverterar heltal med bas 10 till heltal med valfri talbas
 char *convertIntDecToBase(int decimal, int base){
 	char *converted = malloc(sizeof(char) * N);
@@ -125,6 +137,7 @@ char *convertDecToBase(double decimal, int maxDigits, int base){
 	annars sätts sträng till nolltecken */
 	if(decimal > SMALLNUM){
 		baseFrac = convertFracDecToBase(decimal, maxDigits, base);
+		stripZeroes(baseFrac);
 	}
 	else{
 		baseFrac[0] ='\0';

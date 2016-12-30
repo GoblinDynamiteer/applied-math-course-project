@@ -20,6 +20,7 @@ Johan Kämpe
 #define DECIMALTECKEN 10
 
 void reverseString(char *str);
+void stripZeroes(char *str);
 
 char *convertIntDecToBase(int decimal, int base);
 char *convertFracDecToBase(double decimal, int maxDigits, int base);

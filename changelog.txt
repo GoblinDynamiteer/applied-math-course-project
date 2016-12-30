@@ -1,6 +1,5 @@
 TODO
  - Check typecasting of int x = double y. Is rounding correct?
- - Build function that trims zeroes from right in string, eg 11.33000 -> 11.33
  - Build own power of-function?
  - Clean up code
  - Add comments.
@@ -27,3 +26,7 @@ TODO
  *Finished building function to convert fractal base n to any base n
  *Extensive renaming of functions and variables
  *Fixed rounding of return value from pow() function.
+
+2016-12-30
+ *Corrected faulty setting of null terminator in function convertIntDecToBase
+ *Built function stripZeroes, removes trailing zeroes from a string
