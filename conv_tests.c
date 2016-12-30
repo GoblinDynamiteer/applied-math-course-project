@@ -46,9 +46,26 @@ int main(){
 		char num[N];
 		printf("Enter number & base: ");
 		scanf("%s %d", &num, &base);
-		printf("\nInput: %s (%d)\n", num, base);
+		printf("\nInput: %s (%d)", num, base);
+		switch(base){
+			case 2:
+				printf(" [ binary ] \n");
+				break;
+			case 8:
+				printf(" [ octal ] \n");
+				break;
+			case 10:
+				printf(" [ decimal ] \n");
+				break;
+			case 16:
+				printf(" [ hexadecimal ] \n");
+				break;
+			default:
+				printf("\n");
+				break;
+		}
 		printf("*****************************\n");
-		for(int baseOut = 2; baseOut < 25; baseOut++){
+		for(int baseOut = 2; baseOut <= 36; baseOut++){
 			converted = convertBaseToBase(num, 10, base, baseOut);
 			printf("Base %2d:  %s\n", baseOut, converted);
 		}
