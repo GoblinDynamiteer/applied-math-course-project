@@ -25,4 +25,10 @@ Comments in libconvert code is in swedish.
 **Screenshots:**
 
 ![Shot 1](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img009.PNG)
-![Shot 1](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img010.PNG)
+![Shot 2](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img010.PNG)
+
+Using function library for binary arithmetic
+
+![Shot 3](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img011_binaritm.PNG)
+
+
