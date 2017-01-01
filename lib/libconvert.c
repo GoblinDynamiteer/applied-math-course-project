@@ -177,11 +177,23 @@ char *convertDecToBase(double decimal, int maxDigits, int base){
 	return strcat(baseInt, baseFrac);
 }
 
-/* Konverterar tal 'number' med talbas 'baseIn' till tal med talbas 'baseOut' */
+/* Konverterar tal 'number' med talbas 'baseIn' till tal med talbas 'baseOut' 
+	Verkar bli avrundingsfel ibland, eventuellt då denna först alltid konverterar 
+	till decimalt som en mellanlandning, för att sedan konvertera till angiven 
+	talbas ut.  */
 char *convertBaseToBase(char *number, int maxDigits, int baseIn, int baseOut){
-	double convertedDecimal = convertBaseToDec(number, baseIn);
 	char *converted = malloc(sizeof(char) * N);
-	converted = convertDecToBase(convertedDecimal, maxDigits, baseOut);
+	/*	Om talbas in är samma som talbas ut, returneras inmatad siffra utan att
+		konverteras. Dock hade det gått att först konvertera till decimalt, och sedan
+		tillbaka. Men detta förhindrar avrundningsfel */
+	if(baseIn == baseOut){
+		converted = number;
+		/* Bygg eventuellt något som trimmar maxDigits, om inmatat värde har fler. */
+	}	
+	else{
+		double convertedDecimal = convertBaseToDec(number, baseIn);
+		converted = convertDecToBase(convertedDecimal, maxDigits, baseOut);
+	}
 	return converted;
 }
 
@@ -223,9 +235,6 @@ double convertBaseToDec(char *number, int base){
 	return convertedInt + convertedFrac;
 }
 
-//*****BUG: NÅGOT TOKIGT I LOOPEN! FIXA 2*10^2 sätts till 199..
-//Ev. FIXAT - KONTROLLERA!
-
 /*	Konverterar heltal 'number' med talbas 'base' till decimalt heltal */
 int convertIntBaseToDec(char *number, int base){
 	int i = strlen(number) - 1, powerOf = 0;
@@ -235,8 +244,7 @@ int convertIntBaseToDec(char *number, int base){
 			adderade till 'converted' i varje varv. Är eventuellt fixat med typecasting
 			till (int) samt addering av 0.5 
 			Finns det risk att den blir för stor? Jag hade problemet att den blev 1 för liten.
-			Bygg egen funktion?
-			*/
+			Bygg egen funktion? */
 		//gammal: converted += charToNum(number[i]) * pow(base, powerOf);
 		converted += charToNum(number[i]) * (int)(pow(base, powerOf) + 0.5);
 		powerOf++;
@@ -254,3 +262,26 @@ double convertFracBaseToDec(char *number, int base){
 	}
 	return converted;
 }
+
+
+
+//För namngivning av funktioner enligt uppgiften, och för att fungera med tests.h
+char *convert_to_binary(int num){
+	char *converted = malloc(sizeof(char) * N);
+	converted = convertIntDecToBase(num, 2);
+	return converted;
+}
+
+char *convert_to_base(int num, int base){
+	char *converted = malloc(sizeof(char) * N);
+	converted = convertIntDecToBase(num, base);
+	return converted;
+}
+
+char *convert_to_base_frac(double decimal, int maxDigits, int base){
+	char *converted = malloc(sizeof(char) * N);
+	converted = convertFracDecToBase(decimal, maxDigits, base);
+	return converted;
+}
+
+

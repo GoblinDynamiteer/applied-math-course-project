@@ -35,3 +35,9 @@ char *convertBaseToBase(char *number, int maxDigits, int baseIn, int baseOut);
 char numToChar(int num);
 int charToNum(char num);
 double powerOf(int base, int i);
+
+
+//För namngivning av funktioner enligt uppgiften
+char *convert_to_binary(int num);
+char *convert_to_base(int num, int base);
+char *convert_to_base_frac(double decimal, int maxDigits, int base);
