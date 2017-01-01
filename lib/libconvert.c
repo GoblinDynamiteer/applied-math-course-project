@@ -2,6 +2,7 @@
 Mjukvaruutvecklare Inbyggda System
 Applicerad Yrkesmatematik
 Julprojekt 2016/2017
+https://github.com/GoblinDynamiteer/XmasProject2016
 
 Johan Kämpe 
 */
@@ -73,6 +74,8 @@ double powerOf(int base, int i){
 	if(i == 0){
 		;
 	}
+	/* Skulle gå att använda villkorsoperator 
+		i stället för två if-villkor? */
 	else if(i > 0){
 		while(i){
 			sum *= base;
