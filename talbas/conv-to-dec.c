@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
    bas = 16;
    tal = convert_to_decimal("3.243F6A8", bas);
    printf("%s (bas %d) = %g\n", "3.243F6A8", bas, tal);
-   tal = convert_to_decimal("1B23A43.243F6A8", bas);
-   printf("%s (bas %d) = %g\n", "1B23A43.243F6A8", bas, tal);
+/*    tal = convert_to_decimal("1B23A43.243F6A8", bas);
+   printf("%s (bas %d) = %g\n", "1B23A43.243F6A8", bas, tal); */
    return 0;
 }

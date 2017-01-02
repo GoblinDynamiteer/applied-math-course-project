@@ -224,5 +224,5 @@ int main(void) {
    //Own test to check "convert_to_base_both"
    char *returnString;
    returnString = convert_to_base_both(3.141592654, 20, 16);
-   printf("PI = %s(16)\n", returnString);
+   printf("convert_to_base_both:\nPI = %s(16)\n", returnString);
 }
