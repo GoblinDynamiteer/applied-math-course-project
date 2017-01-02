@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h> //for pow (x^-1...n)
 
 int ipow(int bas, int exponent) {
    if(exponent <= 0) return 1;
@@ -27,17 +28,23 @@ int conv_digit(char ch) {
 }
 
 double convert_to_decimal(char *siffror, int bas) {
-   int ix, len = strlen(siffror)-1;
-   int isum = 0;
-   double fsum = 0.0, frac;
-   for(ix = 0; siffror[ix] != '\0' && siffror[ix] != '.'; ix++) {
-      int factor = conv_digit(siffror[ix]);
-      isum = isum*bas + factor;
-      printf("%d: '%c' = %d (%d)\n", len-ix, siffror[ix],
-             conv_digit(siffror[ix]), factor);
-   }
-   /* ta hand om ev decimaler här om siffror[ix] == '.' */
-   return isum+fsum;
+	int ix, len = strlen(siffror)-1;
+	int isum = 0;
+	double fsum = 0.0, frac;
+	for(ix = 0; siffror[ix] != '\0' && siffror[ix] != '.'; ix++) {
+		int factor = conv_digit(siffror[ix]);
+		isum = isum*bas + factor;
+/* 		printf("%d: '%c' = %d (%d)\n", len-ix, siffror[ix], 
+			conv_digit(siffror[ix]), factor); */
+	}
+	/* ta hand om ev decimaler här om siffror[ix] == '.' */
+	if(siffror[ix++] == '.'){ //make sure to skip past '.', it has a value of 46!
+		for(int p = -1; siffror[ix] != '\0'; ix++, p--){
+			int factor = conv_digit(siffror[ix]);
+			fsum += factor * pow(bas, p);
+		}
+	}
+	return isum+fsum;
 }
 
 int main(int argc, char *argv[]) {
@@ -49,5 +56,7 @@ int main(int argc, char *argv[]) {
    bas = 16;
    tal = convert_to_decimal("3.243F6A8", bas);
    printf("%s (bas %d) = %g\n", "3.243F6A8", bas, tal);
+   tal = convert_to_decimal("1B23A43.243F6A8", bas);
+   printf("%s (bas %d) = %g\n", "1B23A43.243F6A8", bas, tal);
    return 0;
 }
