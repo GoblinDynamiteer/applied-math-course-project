@@ -78,6 +78,7 @@ char get_digit(int digit) {
 			4 in hexadecimal is 4
 			
 			Decimal is now 0 and conversion is complete
+			Result is: 4D
 */
 
 //Modified 'convert_to_binary', to handle any base
