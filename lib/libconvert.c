@@ -252,6 +252,13 @@ int convertIntBaseToDec(char *number, int base){
 		converted += charToNum(number[i]) * (int)(pow(base, powerOf) + 0.5);
 		powerOf++;
 	}
+	
+/* 	//Alternativ algoritm från Tomkis convert_to_decimal.
+	for(i = 0; i < strlen(number); i++){
+		int factor = charToNum(number[i]);
+		converted = converted * base + factor;
+	}  */
+
 	return converted;
 }
 
