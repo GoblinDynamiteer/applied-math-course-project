@@ -12,6 +12,7 @@ Code used to test functions in libconvert library
 
 #include <stdio.h>
 #include "lib/libconvert.h"
+#include "lib/liboutput.h"
 //#include "test/tests.h" /*Modified file*/
 #include "test/tests_original.h" /*Original tests from teacher*/
 
@@ -61,7 +62,14 @@ int main(){
 		for(int baseOut = 2; baseOut <= 36; baseOut++){
 			char *converted;
 			converted = convertBaseToBase(num, 10, base, baseOut);
-			printf("Base %2d:  %s\n", baseOut, converted);
+			if(baseOut == 2){
+				printf("Base %2d:  ", baseOut);
+				printBinaryString(converted);
+				printf("\n", baseOut);
+			}
+			else{
+				printf("Base %2d:  %s\n", baseOut, converted);
+			}
 			//free(converted);
 		}
 		printf("*****************************\n");

@@ -1,0 +1,1 @@
+void printBinaryString(char *binString);
