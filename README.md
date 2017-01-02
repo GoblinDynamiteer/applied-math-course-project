@@ -30,15 +30,16 @@ Comments in talbas/conv-to-base.c code is in english.
 
 
 Running tests made by teacher, for code in talbas/conv-to-base.c 
-![Shot 1](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img013_newcode_tests.PNG)
+![Shot 3](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img013_newcode_tests.PNG)
+
+Awesome binary string output:
+![Shot 4](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img014_binformat.PNG)
 
 Using function library for binary arithmetic
-
-![Shot 3](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img011_binaritm.PNG)
+![Shot 5](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img011_binaritm.PNG)
 
 
 Using function library for hexadecimal arithmetic
-
-![Shot 4](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img012.PNG)
+![Shot 6](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img012.PNG)
 
 
