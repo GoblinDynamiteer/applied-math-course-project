@@ -19,6 +19,7 @@ Also
 
 
 Comments in libconvert code is in swedish.
+Comments in talbas/conv-to-base.c code is in english.
 
 ---
 
@@ -26,6 +27,10 @@ Comments in libconvert code is in swedish.
 
 ![Shot 1](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img009.PNG)
 ![Shot 2](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img010.PNG)
+
+
+Running tests made by teacher, for code in talbas/conv-to-base.c 
+![Shot 1](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img013_newcode_tests.PNG)
 
 Using function library for binary arithmetic
 
