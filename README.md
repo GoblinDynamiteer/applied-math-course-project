@@ -18,7 +18,8 @@ Also
 - Function that converts #.##(base) to #.##(base)
 
 
-Comments in libconvert code is in swedish.
+Comments in libconvert code is in swedish.  
+
 Comments in talbas/conv-to-base.c code is in english.
 
 ---
@@ -29,17 +30,20 @@ Comments in talbas/conv-to-base.c code is in english.
 ![Shot 2](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img010.PNG)
 
 
-Running tests made by teacher, for code in talbas/conv-to-base.c 
+Running tests made by teacher, for code in talbas/conv-to-base.c  
 ![Shot 3](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img013_newcode_tests.PNG)
 
-Awesome binary string output:
+Awesome binary string output:  
 ![Shot 4](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img014_binformat.PNG)
 
-Using function library for binary arithmetic
+Conversion functions in Python:  
+![Shot 7](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img015_python.PNG)
+
+Using function library for binary arithmetic  
 ![Shot 5](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img011_binaritm.PNG)
 
 
-Using function library for hexadecimal arithmetic
+Using function library for hexadecimal arithmetic  
 ![Shot 6](https://raw.githubusercontent.com/GoblinDynamiteer/XmasProject2016/master/img/img012.PNG)
 
 
