@@ -17,10 +17,13 @@ Also
 - Two functions that combines above functions, to convert #.##(dec) to #.##(base) and vice versa
 - Function that converts #.##(base) to #.##(base)
 
+Also(!)
+- Includes a Python script with the conversion functions
+- A function in liboutput that prints a binary string "10101001010" to "0101 0100 1010"
+- The excercise remade with the school supplied code-base/functions, in folder 'talbas'
 
 Comments in libconvert code is in swedish.  
-
-Comments in talbas/conv-to-base.c code is in english.
+Comments in talbas/conv-to-base.c and Python code is in english.
 
 ---
 
