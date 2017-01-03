@@ -1,17 +1,17 @@
 # -*- coding: latin-1 -*-
-import math
+import math #for math.trunc(x)
 
 #Convert integers to any base (up to Z..)
 def convert_to_base(num, base): #definition of functions in python
 	convertedList = []
 	alpha = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" #For digits 
 	while num:
-		rest = num % base;
-		digit = alpha[rest]
-		convertedList.append(digit)
+		rest = num % base; #Modulus of
+		digit = alpha[rest] #As in C: string[i] gets letter at index i
+		convertedList.append(digit) #Appends (adds last) to list
 		num //= base; # // is integer division
-	convertedList.reverse()
-	convertedString = ''.join(convertedList)
+	convertedList.reverse() #Reverses the list
+	convertedString = ''.join(convertedList) #Joins items in list to string, '' is (empty) separator 
 	return convertedString
 	
 #Convert floats <1 to any base (up to Z..)
@@ -19,29 +19,33 @@ def convert_to_base_frac(num, base, maxDigits):
 	#num shall be < 1
 	convertedList = ['.'] #So string begins with a comma
 	alpha = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" #For digits 
-	while num > 0 and maxDigits > 0:
+	while num > 0 and maxDigits > 0: # && is 'and' in python
 		num *= base
 		integer = math.trunc(num); #truncates the integer (gets the int-part)
 		digit = alpha[integer]
 		convertedList.append(digit)
 		num -= integer;
-		maxDigits -=1
+		maxDigits -=1 #Seems python doesn's support i++ / i--
 	convertedString = ''.join(convertedList)
 	return convertedString
 	
 #Converts decimal values to base
 def convert_to_decimal(num, base):
-	decimalValue = 0
-	powerOf = 0
+	decimalValue = 0 #For converted decimal value
+	powerOf = 0 #For power of, used in conversion algorithm
 	alpha = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	splitList = num.split('.') #Splits num to 2 list items, separated by the "."
 	integerString = str(splitList[0]) #Sets string to integer part of list
 	floatString = str(splitList[1]) #Sets string to float part of list
-	for letter in integerString[::-1]: #Loop runs reversed
+	
+	#Integer part - conversion algorithm
+	for letter in integerString[::-1]: #For each letter in the string, [::-1] = in reverse
 		value = alpha.find(letter) #Gets index / value from string alpha 5 = 5, 10 = A etc
-		decimalValue += value * base**powerOf
+		decimalValue += value * base**powerOf # ** is power of
 		powerOf += 1
 	powerOf = -1
+	
+	#Float part - conversion algorithm
 	for letter in floatString:
 		value = alpha.find(letter) #Gets index / value from string alpha 5 = 5, 10 = A etc
 		decimalValue += value * base**powerOf
