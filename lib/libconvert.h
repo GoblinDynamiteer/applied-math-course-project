@@ -16,9 +16,6 @@ Johan Kämpe
 #define N 256
 #define SMALLNUM 0.0000000000
 
-//Antal siffror efter kommatecken, för binära flyttal
-#define DECIMALTECKEN 10
-
 void reverseString(char *str);
 void stripZeroes(char *str);
 
