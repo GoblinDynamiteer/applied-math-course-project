@@ -33,9 +33,9 @@ int main(){
 	//Manual input of number and base, displays a list of conversions from base 2 to 36
 	puts("\nMANUAL CONVERSION BASE -> BASE");
 	char *converted;
-	while(1){
+	char num[N] = "123";
+	while(num[0] != '-'){
 		int base = 2;
-		char num[N];
 		printf("Enter number & base: ");
 		scanf("%s %d", &num, &base);
 		printf("\nInput: %s (%d)", num, base);
