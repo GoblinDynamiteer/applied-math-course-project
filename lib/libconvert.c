@@ -274,24 +274,3 @@ double convertFracBaseToDec(char *number, int base){
 }
 
 
-
-//För namngivning av funktioner enligt uppgiften, och för att fungera med tests.h
-char *convert_to_binary(int num){
-	char *converted = malloc(sizeof(char) * N);
-	converted = convertIntDecToBase(num, 2);
-	return converted;
-}
-
-char *convert_to_base(int num, int base){
-	char *converted = malloc(sizeof(char) * N);
-	converted = convertIntDecToBase(num, base);
-	return converted;
-}
-
-char *convert_to_base_frac(double decimal, int maxDigits, int base){
-	char *converted = malloc(sizeof(char) * N);
-	converted = convertFracDecToBase(decimal, maxDigits, base);
-	return converted;
-}
-
-
